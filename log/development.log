@@ -2150,3 +2150,193 @@ ActionView::Template::Error (undefined method `each' for nil:NilClass):
   Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.2ms)
   Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
   Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.4ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-11-23 21:40:00 -0500
+Processing by ArticlesController#index as HTML
+  Rendered articles/index.html.erb within layouts/application (1.5ms)
+Completed 500 Internal Server Error in 5ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th colspan="3"></th>
+     8:   </tr>
+     9:  
+    10: <% @articles.each do |article| %>
+    11:   <tr>
+    12:     <td><%= article.title %></td>
+    13:     <td><%= article.text %></td>
+  app/views/articles/index.html.erb:10:in `_app_views_articles_index_html_erb__2004090636633221085_70261324550480'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.9ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (13.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.8ms)
+Completed 200 OK in 45ms (Views: 43.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:04 -0500
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-11-23 21:40:06 -0500
+Processing by ArticlesController#new as HTML
+  Rendered articles/_form.html.erb (7.8ms)
+  Rendered articles/new.html.erb within layouts/application (16.5ms)
+Completed 200 OK in 95ms (Views: 76.0ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/articles" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+Processing by ArticlesController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"LwgGbg/IKBAUNymzr9TWRr+Jcz9CfavFeaT7uKya1aU=", "article"=>{"title"=>"Hola Mundo ", "text"=>"Voy a dormir!"}, "commit"=>"Create Article"}
+  [1m[36m (0.1ms)[0m  [1mbegin transaction[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "articles" ("created_at", "text", "title", "updated_at") VALUES (?, ?, ?, ?)  [["created_at", "2014-11-24 02:40:18.161771"], ["text", "Voy a dormir!"], ["title", "Hola Mundo "], ["updated_at", "2014-11-24 02:40:18.161771"]]
+  [1m[36m (52.6ms)[0m  [1mcommit transaction[0m
+Redirected to http://localhost:3000/articles/6
+Completed 302 Found in 56ms (ActiveRecord: 53.0ms)
+
+
+Started GET "/articles/6" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+Processing by ArticlesController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mArticle Load (0.2ms)[0m  SELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1  [["id", 6]]
+  Rendered articles/show.html.erb within layouts/application (0.4ms)
+Completed 200 OK in 96ms (Views: 94.0ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:18 -0500
+
+
+Started GET "/articles/6/edit" for 127.0.0.1 at 2014-11-23 21:40:22 -0500
+Processing by ArticlesController#edit as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT  "articles".* FROM "articles"  WHERE "articles"."id" = ? LIMIT 1[0m  [["id", 6]]
+  Rendered articles/_form.html.erb (2.1ms)
+  Rendered articles/edit.html.erb within layouts/application (3.7ms)
+Completed 200 OK in 62ms (Views: 59.8ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-11-23 21:40:24 -0500
+Processing by ArticlesController#index as HTML
+  Rendered articles/index.html.erb within layouts/application (1.8ms)
+Completed 500 Internal Server Error in 6ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th colspan="3"></th>
+     8:   </tr>
+     9:  
+    10: <% @articles.each do |article| %>
+    11:   <tr>
+    12:     <td><%= article.title %></td>
+    13:     <td><%= article.text %></td>
+  app/views/articles/index.html.erb:10:in `_app_views_articles_index_html_erb__2004090636633221085_70261353269440'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (0.8ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (9.8ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-11-23 21:40:24 -0500
+Processing by ArticlesController#index as HTML
+  Rendered articles/index.html.erb within layouts/application (0.8ms)
+Completed 500 Internal Server Error in 3ms
+
+ActionView::Template::Error (undefined method `each' for nil:NilClass):
+     7:     <th colspan="3"></th>
+     8:   </tr>
+     9:  
+    10: <% @articles.each do |article| %>
+    11:   <tr>
+    12:     <td><%= article.title %></td>
+    13:     <td><%= article.text %></td>
+  app/views/articles/index.html.erb:10:in `_app_views_articles_index_html_erb__2004090636633221085_70261324550480'
+
+
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_trace.html.erb (1.0ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/_request_and_response.html.erb (1.4ms)
+  Rendered /usr/local/rvm/gems/ruby-2.0.0-p576/gems/actionpack-4.1.8/lib/action_dispatch/middleware/templates/rescues/template_error.html.erb within rescues/layout (10.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (0.5ms)
+Completed 200 OK in 84ms (Views: 83.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-11-23 21:40:29 -0500
