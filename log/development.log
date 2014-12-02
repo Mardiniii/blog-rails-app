@@ -3554,3 +3554,147 @@ Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-12-02 18:09:48 -05
 
 
 Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 18:09:48 -0500
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-12-02 18:16:45 -0500
+  [1m[36mActiveRecord::SchemaMigration Load (0.1ms)[0m  [1mSELECT "schema_migrations".* FROM "schema_migrations"[0m
+Processing by ArticlesController#index as HTML
+  [1m[35mArticle Load (0.2ms)[0m  SELECT "articles".* FROM "articles"
+  Rendered articles/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 5243ms (Views: 5229.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+Processing by WelcomeController#index as HTML
+  Rendered welcome/index.html.erb within layouts/application (1.4ms)
+Completed 200 OK in 152ms (Views: 150.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap_and_customization.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/dropdown.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/alert.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/tab.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/button.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/carousel.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/collapse.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/transition.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/modal.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/affix.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap-sprockets.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/bootstrap/popover.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:50 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/bootstrap/scrollspy.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/assets/bootstrap/tooltip.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:51 -0500
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-12-02 18:16:54 -0500
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x007faa670d02a0@/Users/apple/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.8/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles/new" for 127.0.0.1 at 2014-12-02 18:16:55 -0500
+Processing by ArticlesController#new as HTML
+Filter chain halted as #<Proc:0x007faa670d02a0@/Users/apple/.rvm/gems/ruby-2.1.5/gems/actionpack-4.1.8/lib/action_controller/metal/http_authentication.rb:71> rendered or redirected
+Completed 401 Unauthorized in 1ms (ActiveRecord: 0.0ms)
+
+
+Started GET "/articles" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+Processing by ArticlesController#index as HTML
+  [1m[36mArticle Load (0.2ms)[0m  [1mSELECT "articles".* FROM "articles"[0m
+  Rendered articles/index.html.erb within layouts/application (2.5ms)
+Completed 200 OK in 156ms (Views: 155.2ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/assets/articles.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/comments.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/welcome.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/jquery.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/bootstrap_and_customization.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/application.css?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/jquery_ujs.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/turbolinks.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/articles.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/comments.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/welcome.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
+
+
+Started GET "/assets/application.js?body=1" for 127.0.0.1 at 2014-12-02 18:16:59 -0500
