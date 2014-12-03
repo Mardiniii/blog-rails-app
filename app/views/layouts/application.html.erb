@@ -1,14 +1,22 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogRailsApp</title>
+  <title>Blog Rails App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
+	
+	<div class="container-fluid">
+		<div class="page-header">
+		  <h1>Blog Rails APP <small>Manage your articles</small></h1>
+		</div>
+	</div>
 
-<%= yield %>
-
+	<div class="container-fluid">
+		<%= yield %>
+		<%= link_to 'New Article' , new_article_path, :class => "button btn btn-lg btn-success" %>
+	</div>
 </body>
 </html>

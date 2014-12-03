@@ -1,22 +1,37 @@
-<h1>Listing Articles</h1>
-<%= link_to 'New article', new_article_path %>
-<table>
-  <tr>
-    <th>Title</th>
-    <th>Date</th>
-    <th>Text</th>
-    <th colspan="3"></th>
-  </tr>
- 
-<% @articles.each do |article| %>
-  <tr>
-    <td><%= article.title %></td>
-    <td><%= article.created_at %></td>
-    <td><%= article.text %></td>
-    <td><%= link_to 'Show', article_path(article) %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article_path(article),
-                    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-<% end %>
-</table>
+<div class="row">
+  <div class="col-md-8">
+    <div class="panel panel-default">
+      <div class="panel-body">
+         
+        <% @articles.each do |article| %>
+          
+          <div class="panel panel-default">
+            <div class="panel-heading">
+              <h1 style="display: inline-block"class="panel-title"><%=link_to article.title, article_path(article)%></h1>
+              <span class="text-right" ><%= article.created_at %></span>
+            </div>
+            <div class="panel-body">
+              <%= article.text %>
+              <p class="text-right"><%= article.comments.count %> Comentarios</p>
+              <%= link_to 'Edit', edit_article_path(article) %>
+              <%= link_to 'Destroy', article_path(article), method: :delete, data: { confirm: 'Are you sure?' } %>
+            </div>
+          </div>
+        <% end %>
+
+      </div> <!-- Close panel panel-default -->
+    </div> <!-- Close panel-body -->
+  </div> <!-- Close col 8-->
+  
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <div class="panel-body">
+
+
+
+      </div> <!-- Close panel panel-default -->
+    </div> <!-- Close panel-body -->
+  </div> <!-- Close col 4-->
+
+</div> <!-- Close row -->
+
