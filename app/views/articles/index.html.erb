@@ -1,24 +1,26 @@
 <div class="row">
   <div class="col-md-8">
     <div class="panel panel-default">
+      <h3 class="text-center">Choose An Article Clicking On The Title</h3>
       <div class="panel-body">
          
-        <% @articles.each do |article| %>
-          
+        <% @articles.each do |article| %>         
           <div class="panel panel-default">
             <div class="panel-heading">
               <h1 style="display: inline-block" class="panel-title"><%=link_to article.title, article_path(article)%></h1>
-              <span class="text-right" ><%= article.created_at %></span>
+              <span style="float: right" class="text-right" ><%= article.created_at %></span>
             </div>
             <div class="panel-body">
               <%= article.text %>
-              <p class="text-right"><%= article.comments.count %> Comentarios</p>
-              <%= link_to edit_article_path(article) do %>
-                <span class="glyphicon glyphicon-edit"></span>Edit
-              <% end %>
-              <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                <span class="glyphicon glyphicon-remove"></span>Delete
-              <% end %>
+              <p class="text-right">
+                <%= article.comments.count %> Comentarios
+                <%= link_to edit_article_path(article) do %>
+                  <span class="glyphicon glyphicon-edit"></span>Edit
+                <% end %>
+                <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                  <span class="glyphicon glyphicon-remove"></span>Delete
+                <% end %>
+              </p>
             </div>
           </div>
         <% end %>
@@ -29,9 +31,10 @@
   
   <div class="col-md-4">
     <div class="panel panel-default">
+      <h3 class="text-center">Last 5 Articles On The Blog</h3>
       <div class="panel-body">
 
-
+        <!-- Encontrar los ultimos cincon articulos y mostrarlos en este panel -->
 
       </div> <!-- Close panel panel-default -->
     </div> <!-- Close panel-body -->
