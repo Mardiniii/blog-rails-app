@@ -16,6 +16,7 @@ class ArticlesController < ApplicationController
 
 	def index
   		@articles = Article.all
+  		@lastfive = Article.order('created_at DESC').limit(5)
 	end
 
 

@@ -21,21 +21,26 @@
                   <span class="glyphicon glyphicon-remove"></span>Delete
                 <% end %>
               </p>
-            </div>
-          </div>
+            </div> <!-- Close panel-body -->
+          </div> <!-- Close panel panel-default -->
         <% end %>
 
-      </div> <!-- Close panel panel-default -->
-    </div> <!-- Close panel-body -->
+      </div> <!-- Close panel-body -->
+    </div> <!-- Close panel panel-default -->
   </div> <!-- Close col 8-->
   
   <div class="col-md-4">
     <div class="panel panel-default">
       <h3 class="text-center">Last 5 Articles On The Blog</h3>
       <div class="panel-body">
-
-        <!-- Encontrar los ultimos cincon articulos y mostrarlos en este panel -->
-
+        <% @lastfive.each do |lastfive| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h1 class="panel-title"><%=link_to lastfive.title, article_path(lastfive)%></h1>
+              <p><%= lastfive.created_at %></p>
+            </div> <!-- Close panel-body -->
+          </div> <!-- Close panel panel-default -->
+        <% end %>
       </div> <!-- Close panel panel-default -->
     </div> <!-- Close panel-body -->
   </div> <!-- Close col 4-->
