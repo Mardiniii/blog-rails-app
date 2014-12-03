@@ -10,6 +10,7 @@ class ArticlesController < ApplicationController
   		if @article.save
   			redirect_to @article
   		else
+  			puts @article.errors.full_messages
   			render 'new'
   		end
 	end
@@ -47,6 +48,6 @@ class ArticlesController < ApplicationController
 
 	private
   		def article_params
-    		params.require(:article).permit(:title, :date, :text)
+    		params.require(:article).permit(:title, :text)
   		end
 end
