@@ -14,9 +14,13 @@
  *= require_self
  */
 
-#input_form{
-	width: 500px;
-	height: 400px;
-	margin: 0 auto;
-	padding: 30px;
+.line_in_block{
+	display: inline-block;
+	margin: 0;
+}
+.right_text{
+	float: right;
+}
+.boton{
+	margin: 0 5px;
 }

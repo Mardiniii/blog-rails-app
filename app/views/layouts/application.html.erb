@@ -10,7 +10,9 @@
 	
 	<div class="container-fluid">
 		<div class="page-header">
-		  <h1>Blog Rails APP <small>Manage your articles</small></h1>
+			<h1 style= "display: inline-block">Blog Rails APP <small>Manage your articles</small></h1>
+			<%= link_to 'View All Articles', articles_path, :class => "button btn btn-lg btn-info right_text boton" %>
+			<%= link_to 'New Article' , new_article_path, :class => "button btn btn-lg btn-success right_text boton" %>
 		</div>
 	</div>
 

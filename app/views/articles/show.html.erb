@@ -4,8 +4,12 @@
 			<div class="panel-body">
 				<div class="panel panel-default">
 					<div class="panel-body">
-						<h1>Title:<%= @article.title %></h1>
+						<div class="content">
+							<h3 class="line_in_block"><%= @article.title %></h3>
+							<span class="text-right right_text" ><%= @article.created_at %></span>
+						</div>
 						<p><%= @article.text %></p>
+						<p><strong>By: </strong><%= @article.author %></p>
 					</div>
 				</div> 
 				<h2>Comments</h2>
@@ -31,4 +35,3 @@
 </div>
  
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
-<%= link_to 'Back to Articles', articles_path %>
