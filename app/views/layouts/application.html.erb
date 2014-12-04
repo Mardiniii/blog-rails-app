@@ -8,7 +8,8 @@
 </head>
 <body>
 
-		<nav class="navbar navbar-default" role="navigation">
+	<div class="container-fluid">
+		<nav class="navbar navbar-default barra" role="navigation">
 		  <div class="container-fluid">
 		    <!-- Brand and toggle get grouped for better mobile display -->
 		    <div class="navbar-header">
@@ -18,7 +19,7 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <h3 style= "display: inline-block" class="navbar-text"><%= link_to 'Blog Rails APP', articles_path %><small> Manage your articles</small></h3>
+		      <h3 style= "display: inline-block" class="navbar-text"><%= link_to 'Blog Rails APP', articles_path, :class => "eslogan" %><small> Manage your articles</small></h3>
 		      
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
@@ -32,6 +33,7 @@
 
 		  </div><!-- /.container-fluid -->
 		</nav>
+	</div>
 
 	<div class="container-fluid">
 		<%= yield %>
