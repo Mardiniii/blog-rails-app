@@ -1,14 +1,42 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>BlogRailsApp</title>
+  <title>Blog Rails App</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 
-<%= yield %>
+	<div class="container-fluid">
+		<nav class="navbar navbar-default barra" role="navigation">
+		  <div class="container-fluid">
+		    <!-- Brand and toggle get grouped for better mobile display -->
+		    <div class="navbar-header">
+		      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+		        <span class="sr-only">Toggle navigation</span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		        <span class="icon-bar"></span>
+		      </button>
+		      <h3 style= "display: inline-block" class="navbar-text"><%= link_to 'Blog Rails APP', articles_path, :class => "eslogan" %><small> Manage your articles</small></h3>
+		      
+		    </div>
+		    <!-- Collect the nav links, forms, and other content for toggling -->
+		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<%= link_to 'View All Articles', articles_path, :class => "button boton btn btn-info right_text  navbar-right navbar-btn" %>
+				<% if @mostrar_editar %>
+					<%= link_to 'Edit Article', edit_article_path(@article), :class => "button boton btn btn-warning right_text navbar-btn" %>
+				<% end %>
+				<%= link_to 'New Article' , new_article_path, :class => "button boton btn btn-success right_text navbar-btn" %>
+		    </div><!-- /.navbar-collapse -->
 
+		  </div><!-- /.container-fluid -->
+		</nav>
+	</div>
+
+	<div class="container-fluid">
+		<%= yield %>
+	</div>
 </body>
 </html>

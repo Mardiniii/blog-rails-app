@@ -1,7 +1,5 @@
 class ArticlesController < ApplicationController
-	
-	http_basic_authenticate_with name: "dhh", password: "secret", except: [:index, :show]
-	
+		
 	def new
 		@article = Article.new
 	end
@@ -12,12 +10,14 @@ class ArticlesController < ApplicationController
   		if @article.save
   			redirect_to @article
   		else
+  			puts @article.errors.full_messages
   			render 'new'
   		end
 	end
 
 	def index
   		@articles = Article.all
+  		@lastfive = Article.order('created_at DESC').limit(5)
 	end
 
 
@@ -27,6 +27,8 @@ class ArticlesController < ApplicationController
 
 	def show
   		@article = Article.find(params[:id])
+  		@comments = @article.comments
+  		@mostrar_editar = true
 	end
 
 	def update
@@ -48,6 +50,6 @@ class ArticlesController < ApplicationController
 
 	private
   		def article_params
-    		params.require(:article).permit(:title, :text)
+    		params.require(:article).permit(:title, :author, :text)
   		end
 end

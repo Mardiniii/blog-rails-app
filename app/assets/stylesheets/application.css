@@ -13,3 +13,22 @@
  *= require_tree .
  *= require_self
  */
+
+.line_in_block{
+	display: inline-block;
+	margin: 0;
+}
+.right_text{
+	float: right;
+}
+.boton{
+	margin-left: 5px;
+	margin-right: 5px;
+}
+.barra{
+	margin-top: 15px;
+	background-color: white;
+}
+.eslogan{
+	color: black; 
+}
