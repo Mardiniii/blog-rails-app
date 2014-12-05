@@ -32,7 +32,7 @@
 		    		<%= link_to "Log In", new_user_session_path, class: "btn boton btn-warning navbar-right navbar-btn" %>
               	<% end %>			
 				<%= link_to 'View All Articles', articles_path, :class => "button boton btn btn-info navbar-right navbar-btn" %>
-				<% if @mostrar_editar %>
+				<% if @mostrar_editar && user_signed_in? %>
 					<%= link_to 'Edit Article', edit_article_path(@article), :class => "button boton btn btn-warning navbar-right navbar-btn" %>
 				<% end %>
 				<% if user_signed_in? %> 
