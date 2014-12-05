@@ -43,15 +43,14 @@
 		  </div><!-- /.container-fluid -->
 		</nav>
 	</div>
-	
-	<% if flash[:notice] %>
-		<p class="alert notice alert-info"><%= notice %></p>
-	<% end %>
-	<% if flash[:alert] %>
-		<p class="alert alert-warning"><%= alert %></p>
-	<% end %>
 
 	<div class="container-fluid">
+		<% if flash[:notice] %>
+			<p class="alert notice alert-info"><%= notice %></p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p class="alert alert-warning"><%= alert %></p>
+		<% end %>
 		<%= yield %>
 	</div>
 </body>
