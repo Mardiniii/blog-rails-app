@@ -19,15 +19,17 @@
 							<%= render 'comments/comment', :comment => f %>
 						</div>
 					</div>
-				<% end %>		
-				
-				<div class="panel panel-default">
-					<div class="panel-body">
-						<h2>Add a comment:</h2>
-						<%= render "comments/form" %>
-					</div>
-				</div>
+				<% end %>
 
+				<% if user_signed_in? %>
+					<div class="panel panel-default">
+						<div class="panel-body">
+							<h2>Add a comment:</h2>
+							<%= render "comments/form" %>
+						</div>
+					</div>
+				<% end %>
+				
 				</div>
 			</div>
 		</div>
