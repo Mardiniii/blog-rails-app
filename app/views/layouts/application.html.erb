@@ -24,8 +24,13 @@
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-		    	<%= link_to "Log In", new_user_session_path, class: "btn boton btn-primary navbar-right navbar-btn" %>
-		    	<%= link_to "Sign Up", new_user_registration_path, class: "btn boton btn-primary navbar-right navbar-btn" %>
+				<% if user_signed_in? %>                
+                	<%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "button boton btn btn-warning navbar-right navbar-btn" %>
+                	<%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "navbar-btn boton navbar-right" %>
+              	<% else %>
+		    		<%= link_to "Sign Up", new_user_registration_path, class: "btn boton btn-primary navbar-right navbar-btn" %>
+		    		<%= link_to "Log In", new_user_session_path, class: "btn boton btn-primary navbar-right navbar-btn" %>
+              	<% end %>			
 				<%= link_to 'View All Articles', articles_path, :class => "button boton btn btn-info navbar-right navbar-btn" %>
 				<% if @mostrar_editar %>
 					<%= link_to 'Edit Article', edit_article_path(@article), :class => "button boton btn btn-warning navbar-right navbar-btn" %>
