@@ -9,7 +9,7 @@
 							<span class="text-right right_text" ><%= @article.created_at %></span>
 						</div><hr>
 						<p class="text-justify"><%= @article.text %></p>
-						<p><strong>By: </strong><%= @article.author %></p>
+						<p><strong>By: </strong><%= @article.user.email %></p>
 					</div>
 				</div> 
 				<h2>Comments</h2>
