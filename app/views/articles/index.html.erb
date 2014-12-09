@@ -11,14 +11,27 @@
               <span class="text-right right_text" ><%= article.created_at %></span>
             </div>
             <div class="panel-body text-justify">
-              <%= article.text %><hr>
+              <div class="row">
+                
+                <div class="col-md-3 text-center">
+                  <%= image_tag Gravatar.new(article.user.email).image_url(s: 150) %>
+                </div>
+                
+                <div class="col-md-9">
+                  <%= article.text %>
+                </div>
+              </div> <!-- Close row -->
+              <hr>              
               <p class="text-right">
-                <%= article.comments.count %> Comentarios |    
-                <%= link_to edit_article_path(article) do %>
-                  <span class="glyphicon glyphicon-edit"></span>Edit | 
-                <% end %>
-                <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <span class="glyphicon glyphicon-remove"></span>Delete
+                <%= article.comments.count %> Comentarios 
+                <% if current_user == article.user %>
+                  |    
+                  <%= link_to edit_article_path(article) do %>
+                    <span class="glyphicon glyphicon-edit"></span>Edit | 
+                  <% end %>
+                  <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <span class="glyphicon glyphicon-remove"></span>Delete
+                  <% end %>
                 <% end %>
               </p>
             </div> <!-- Close panel-body -->
@@ -37,11 +50,29 @@
           <div class="panel panel-default">
             <div class="panel-body">
               <h1 class="panel-title"><%=link_to lastfive.title, article_path(lastfive)%></h1>
-              <p><%= lastfive.created_at %></p>
+              <p class="right_text"><%= lastfive.created_at %></p>
             </div> <!-- Close panel-body -->
           </div> <!-- Close panel panel-default -->
         <% end %>
       </div> <!-- Close panel panel-default -->
     </div> <!-- Close panel-body -->
   </div> <!-- Close col 4-->
-</div> <!-- Close row -->
+
+  <div class="col-md-4">
+    <div class="panel panel-default">
+      <h3 class="text-center">5 Most commented articles</h3>
+      <div class="panel-body">
+        <% @mostcommented.each do |mostcommented| %>
+          <div class="panel panel-default">
+            <div class="panel-body">
+              <h1 class="panel-title"><%=link_to mostcommented.title, article_path(mostcommented)%></h1>
+              <p class="right_text"><%= mostcommented.comments.count %> Comentarios | <%= mostcommented.created_at %></p>
+            </div> <!-- Close panel-body -->
+          </div> <!-- Close panel panel-default -->
+        <% end %> <!-- Close each -->
+      </div> <!-- Close panel panel-body -->
+
+    </div> <!-- Close panel-default -->
+  </div> <!-- Close Colum for most comment -->
+
+</div> <!-- Close Row -->

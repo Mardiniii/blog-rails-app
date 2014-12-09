@@ -19,16 +19,25 @@
 		        <span class="icon-bar"></span>
 		        <span class="icon-bar"></span>
 		      </button>
-		      <h3 style= "display: inline-block" class="navbar-text"><%= link_to 'Blog Rails APP', articles_path, :class => "eslogan" %><small> Manage your articles</small></h3>
-		      
+		      <h3 style= "display: inline-block" class="navbar-text"><%= link_to 'Comunidad Verdolaga', articles_path, :class => "eslogan" %><small> Mas que una pasión! </small></h3>
 		    </div>
 		    <!-- Collect the nav links, forms, and other content for toggling -->
 		    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<%= link_to 'View All Articles', articles_path, :class => "button boton btn btn-info right_text  navbar-right navbar-btn" %>
-				<% if @mostrar_editar %>
-					<%= link_to 'Edit Article', edit_article_path(@article), :class => "button boton btn btn-warning right_text navbar-btn" %>
+				<% if user_signed_in? %>
+					<%= image_tag Gravatar.new(current_user.email).image_url(s: 35), :class => "navbar-btn boton navbar-right" %>               
+                	<%= link_to "Salir", destroy_user_session_path, method: :delete, :class => "button boton btn btn-danger navbar-right navbar-btn" %>                	
+                	<%= link_to "Edit User", edit_user_registration_path, :class => "button boton btn btn-warning navbar-right navbar-btn" %>                	
+              	<% else %>
+		    		<%= link_to "Sign Up", new_user_registration_path, class: "btn boton btn-default navbar-right navbar-btn" %>
+		    		<%= link_to "Log In", new_user_session_path, class: "btn boton btn-warning navbar-right navbar-btn" %>
+              	<% end %>			
+				<%= link_to 'View All Articles', articles_path, :class => "button boton btn btn-info navbar-right navbar-btn" %>
+				<% if @mostrar_editar && user_signed_in? %>
+					<%= link_to 'Edit Article', edit_article_path(@article), :class => "button boton btn btn-warning navbar-right navbar-btn" %>
 				<% end %>
-				<%= link_to 'New Article' , new_article_path, :class => "button boton btn btn-success right_text navbar-btn" %>
+				<% if user_signed_in? && current_user.writer == true %> 
+					<%= link_to 'New Article' , new_article_path, :class => "button boton btn btn-success navbar-right navbar-btn" %>
+				<% end %>
 		    </div><!-- /.navbar-collapse -->
 
 		  </div><!-- /.container-fluid -->
@@ -36,6 +45,12 @@
 	</div>
 
 	<div class="container-fluid">
+		<% if flash[:notice] %>
+			<p class="alert notice alert-info"><%= notice %></p>
+		<% end %>
+		<% if flash[:alert] %>
+			<p class="alert alert-warning"><%= alert %></p>
+		<% end %>
 		<%= yield %>
 	</div>
 </body>
