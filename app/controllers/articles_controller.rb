@@ -1,7 +1,13 @@
 class ArticlesController < ApplicationController
 	before_action :authenticate_user!, except: [:index,:show]
 	def new
-		@article = Article.new
+		if current_user.writer
+			@article = Article.new
+			@permission = true
+		else
+			@permission = false
+			redirect_to articles_path
+		end
 	end
 
 	def create
