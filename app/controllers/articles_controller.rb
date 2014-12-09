@@ -13,7 +13,6 @@ class ArticlesController < ApplicationController
 	def create
 		@article = Article.new(article_params)
 		@article.user = current_user
- 
   		if @article.save
   			redirect_to @article
   		else
@@ -25,6 +24,7 @@ class ArticlesController < ApplicationController
 	def index
   		@articles = Article.all
   		@lastfive = Article.order('created_at DESC').limit(5)
+  		@mostcommented = Article.order('number_of_comments DESC').limit(5)
 	end
 
 
@@ -51,7 +51,6 @@ class ArticlesController < ApplicationController
 	def destroy
 		@article = Article.find(params[:id])
 		@article.destroy
-	 
 		redirect_to articles_path
 	end
 

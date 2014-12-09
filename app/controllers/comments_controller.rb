@@ -6,6 +6,8 @@ class CommentsController < ApplicationController
 		@comment = @article.comments.build(comment_params)
 		@comment.user = current_user
 		@comment.save
+		@article.number_of_comments = @article.number_of_comments + 1
+		@article.save
 		redirect_to article_path(@article, anchor: "comment_#{@comment.id}")
 	end
 	
@@ -13,6 +15,8 @@ class CommentsController < ApplicationController
 		@article = Article.find(params[:article_id])
 		@comment = @article.comments.find(params[:id])
 		@comment.destroy
+		@article.number_of_comments = @article.number_of_comments - 1
+		@article.save
 		redirect_to article_path(@article)
 	end
 
