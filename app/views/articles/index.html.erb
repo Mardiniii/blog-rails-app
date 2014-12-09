@@ -23,12 +23,15 @@
               </div> <!-- Close row -->
               <hr>              
               <p class="text-right">
-                <%= article.comments.count %> Comentarios |    
-                <%= link_to edit_article_path(article) do %>
-                  <span class="glyphicon glyphicon-edit"></span>Edit | 
-                <% end %>
-                <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
-                  <span class="glyphicon glyphicon-remove"></span>Delete
+                <%= article.comments.count %> Comentarios 
+                <% if current_user == article.user %>
+                  |    
+                  <%= link_to edit_article_path(article) do %>
+                    <span class="glyphicon glyphicon-edit"></span>Edit | 
+                  <% end %>
+                  <%= link_to article_path(article), method: :delete, data: { confirm: 'Are you sure?' } do %>
+                    <span class="glyphicon glyphicon-remove"></span>Delete
+                  <% end %>
                 <% end %>
               </p>
             </div> <!-- Close panel-body -->

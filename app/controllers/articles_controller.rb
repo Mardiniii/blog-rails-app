@@ -30,28 +30,40 @@ class ArticlesController < ApplicationController
 
 	def edit
 		@article = Article.find(params[:id])
+		if current_user == @article.user
+			render 'edit'
+		else 
+			redirect_to articles_path
+		end		
 	end
 
 	def show
   		@article = Article.find(params[:id])
   		@comments = @article.comments
-  		@mostrar_editar = true
+  		if current_user == @article.user
+  			@mostrar_editar = true
+  		else
+  			@mostrar_editar = false
+  		end
 	end
 
 	def update
 		@article = Article.find(params[:id])
-	 
-  		if @article.update(article_params)
-	    	redirect_to @article
-		else
-	    	render 'edit'
-	  	end
+	 	if current_user == @article.user
+	  		if @article.update(article_params)
+		    	redirect_to @article
+			else
+		    	render 'edit'
+		  	end
+		end
 	end
 
 	def destroy
 		@article = Article.find(params[:id])
-		@article.destroy
-		redirect_to articles_path
+		if current_user == @article.user
+			@article.destroy
+			redirect_to articles_path
+		end
 	end
 
 	private

@@ -13,11 +13,12 @@
       <strong>Date:</strong>
       <%= comment.created_at %>
     </p>
-    <% if user_signed_in? %>
+    <% if user_signed_in? && current_user == comment.user %>
       <%= link_to 'Delete Comment', [comment.article, comment],
                    method: :delete,
                    data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
     <% end %>
+
   </div>
 
   <div class="col-md-3 text-center">
