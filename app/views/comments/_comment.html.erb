@@ -1,22 +1,26 @@
 <a name="comment_<%= comment.id%>"></a>
-<p>
-  <strong>Author:</strong>
-  <%= comment.user.email %>
-</p>
- 
-<p>
-  <strong>Date:</strong>
-  <%= comment.created_at %>
-</p>
 
-<p>
-  <strong>Comment:</strong>
-  <%= comment.body %>
-</p>
-<% if user_signed_in? %>
-	<p>
-	  <%= link_to 'Delete Comment', [comment.article, comment],
-	               method: :delete,
-	               data: { confirm: 'Are you sure?' }, :class => "btn btn-danger right_text" %>
-	</p>
-<% end %>
+<div class="row">
+  <div class="col-md-9 text-justify">
+    <p>
+      <%= comment.body %>
+    </p>
+    <p>
+      <strong>Author:</strong>
+      <%= comment.user.email %>
+    </p>
+    <p>
+      <strong>Date:</strong>
+      <%= comment.created_at %>
+    </p>
+    <% if user_signed_in? %>
+      <%= link_to 'Delete Comment', [comment.article, comment],
+                   method: :delete,
+                   data: { confirm: 'Are you sure?' }, :class => "btn btn-danger" %>
+    <% end %>
+  </div>
+
+  <div class="col-md-3 text-center">
+    <%= image_tag Gravatar.new(comment.user.email).image_url(s: 100) %>
+  </div>
+</div>
